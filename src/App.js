@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Tweet from "./Tweet";
 
+// Component called APP
 function App() {
+
+  const [users, setUsers] = useState([
+    {name: "Walter Veith", message:"Walter Julius Veith author and speaker known for his work in nutrition", views:"1000k"},
+    {name: "Christopher Hudson",message:"Forerunner, is a Seventh-day Adventist who is famous for the fiery sermons he gives", views:"500k"},
+    {name: "Randy Skeet",message:"is an evangelist and revivalist from Ann Arbor, Michigan", views:"650k"}
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // JSX
+    <div className="app">
+      {users.map(user => (
+        <Tweet name={user.name} message={user.message} views={user.views}></Tweet>
+      ))}
+      
     </div>
   );
 }
 
-export default App;
+export default App; // export react
